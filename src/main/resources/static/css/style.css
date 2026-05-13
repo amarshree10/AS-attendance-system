@@ -1,0 +1,164 @@
+/* テーブル固定レイアウト */
+.table-attendance {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-wrapper {
+    max-height: 80vh;
+    overflow: auto;
+    overflow-x:hidden;
+}
+/*列幅固定*/
+/*
+.table-attendance th:nth-child(1),
+.table-attendance td:nth-child(1) {
+    width: 18%;
+}
+
+.table-attendance th:nth-child(2),
+.table-attendance td:nth-child(2),
+.table-attendance th:nth-child(3),
+.table-attendance td:nth-child(3) {
+    width: 17%
+}
+
+.table-attendance th:nth-child(4),
+.table-attendance td:nth-child(4) {
+    width: 16%
+}
+
+.table-attendance th:nth-child(5),
+.table-attendance td:nth-child(5) {
+    width: 32%
+}
+*/
+
+/*セル*/
+.table-attendance th,
+.table-attendance td {
+    padding: 4px;
+    font-size: 0.7rem;
+}
+/*ヘッダー固定 */
+.table-attendance thead th {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: darkgray;
+    border-bottom: 2px solid #000;
+}
+
+
+/*合計行固定 */
+.table-attendance tfoot td{
+    position:sticky;
+    bottom: 0;
+    background: darkgray;
+    z-index: 30;
+    border-top: 2px solid #000;
+}
+
+/*枠ずれ防止*/
+.table-attendance tbody tr:first-child td {
+    border-top: none;
+}
+
+/*input 防止*/
+.table-attendance input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+.time-text{
+    text-align: center;
+    min-width: 70px;
+}
+
+/*土日色*/
+.table-attendance tbody tr.sat td {
+    background-color: #e0f0ff !important;
+}
+
+.table-attendance tbody tr.sun td {
+    background-color: #ffe7e7 !important;
+}
+
+.table-attendance tbody tr.holiday td {
+    background-color: #fff3cd !important;
+}
+
+.dropdown button {
+    border: none;
+    background: transparent;
+}
+
+.time-text::placeholder {
+    color: #bdbdbd;
+    opacity: 1;
+}
+
+.dropdown button:hover {
+    background: #f0f0f0;
+    border-radius: 6px;
+}
+
+.time-error {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff5f5;
+}
+
+/* エラーメッセージ */
+.invalid-feedback {
+    display: none;
+    font-size: 0.7rem;
+    color: #dc3545;
+    text-align: left;
+}
+
+/* 表示 */
+.show-error {
+    display: block;
+}
+/*行選択*/
+.attendance-row {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.table-attendance tbody tr.attendance-row:hover td {
+    background-color:gray;
+}
+
+.table-attendance tbody tr.selected-row td {
+    background-color: darkgray !important;
+}
+
+.table-attendance tbody tr.copied-row td{
+    background-color: #dfdbfe !important;
+}
+
+
+@media (max-width: 768px) {
+    .table-attendance th,
+    .table-attendance td {
+        font-size: 0.65rem;
+        padding: 2px;
+    }
+
+    .form-control {
+        font-size: 0.5rem;
+        padding: 2px;
+    }
+
+    .input[type="time"] {
+        appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .dropdown button {
+        padding: 6px 10px;
+    }
+}
